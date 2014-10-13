@@ -24,7 +24,8 @@
     "factory",
     "filter",
     "provider",
-    "route"
+    "route",
+    "service"
   ],
   "keywords": [
     "yeoman-generator"
