@@ -23,7 +23,8 @@
     "directive",
     "factory",
     "filter",
-    "provider"
+    "provider",
+    "route"
   ],
   "keywords": [
     "yeoman-generator"
