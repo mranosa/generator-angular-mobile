@@ -20,7 +20,8 @@
     "app",
     "controller",
     "decorator",
-    "directive"
+    "directive",
+    "factory"
   ],
   "keywords": [
     "yeoman-generator"
