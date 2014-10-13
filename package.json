@@ -22,7 +22,8 @@
     "decorator",
     "directive",
     "factory",
-    "filter"
+    "filter",
+    "provider"
   ],
   "keywords": [
     "yeoman-generator"
