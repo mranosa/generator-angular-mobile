@@ -19,7 +19,8 @@
   "files": [
     "app",
     "controller",
-    "decorator"
+    "decorator",
+    "directive"
   ],
   "keywords": [
     "yeoman-generator"
