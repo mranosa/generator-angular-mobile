@@ -1,0 +1,1 @@
+{"id":"io.cordova.<%= scriptAppName %>","name":"<%= scriptAppName %>"}

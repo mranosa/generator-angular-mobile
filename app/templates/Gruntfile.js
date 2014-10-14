@@ -64,7 +64,7 @@ module.exports = function(grunt) {
           middleware: function(connect) {
             return [
               connect().use(
-                '/<%= yeoman.app %>/bower_components',
+                '/<%%= yeoman.app %>/bower_components',
                 connect.static('./bower_components')
               ),
               connect.static(appConfig.app)
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
           middleware: function(connect) {
             return [
               connect().use(
-                '/<%= yeoman.app %>/bower_components',
+                '/<%%= yeoman.app %>/bower_components',
                 connect.static('./bower_components')
               ),
               connect.static(appConfig.app)
@@ -107,14 +107,14 @@ module.exports = function(grunt) {
     },
     wiredep: {
       app: {
-        src: ['<%= yeoman.app %>/index.html'],
+        src: ['<%%= yeoman.app %>/index.html'],
         ignorePath: /\.\.\//
       }
     },
     replace: {
       devCordovaIndex: {
         src: [
-          '<%= yeoman.app %>/index.html'
+          '<%%= yeoman.app %>/index.html'
         ],
         overwrite: true,
         replacements: [{
@@ -125,7 +125,7 @@ module.exports = function(grunt) {
       },
       devCordovaApp: {
         src: [
-          '<%= yeoman.app %>/app/app.js'
+          '<%%= yeoman.app %>/app/app.js'
         ],
         overwrite: true,
         replacements: [{
@@ -135,7 +135,7 @@ module.exports = function(grunt) {
       },
       cleanCordovaApp: {
         src: [
-          '<%= yeoman.app %>/app/app.js'
+          '<%%= yeoman.app %>/app/app.js'
         ],
         overwrite: true,
         replacements: [{
@@ -145,14 +145,14 @@ module.exports = function(grunt) {
       }
     },
     inlinelint: {
-      html: ['<%= yeoman.app %>/app/**/*.html', '<%= yeoman.app %>/index.html']
+      html: ['<%%= yeoman.app %>/app/**/*.html', '<%%= yeoman.app %>/index.html']
     },
     csslint: {
       strict: {
         options: {
           import: 2
         },
-        src: ['<%= yeoman.app %>/assets/**/*.css']
+        src: ['<%%= yeoman.app %>/assets/**/*.css']
       }
     },
     htmlangular: {
@@ -171,56 +171,40 @@ module.exports = function(grunt) {
         ]
       },
       files: {
-        src: ['<%= yeoman.app %>/app/**/*.html']
-      }
-    },
-    injector: {
-      options: {},
-      local_dependencies: {
-        files: {
-          '<%= yeoman.app %>/index.html': [
-            ['<%= yeoman.app %>/{app,components}/**/*.js',
-              '!<%= yeoman.app %>/app/app.js',
-              '!<%= yeoman.app %>/{app,components}/**/*.spec.js',
-              '!<%= yeoman.app %>/{app,components}/**/*.mock.js'
-            ]
-          ],
-        }
+        src: ['<%%= yeoman.app %>/app/**/*.html']
       }
     },
     injector: {
       options: {
 
       },
-      // Inject application script files into index.html (doesn't include bower)
       scripts: {
         options: {
           transform: function(filePath) {
-            filePath = filePath.replace('/client/', '');
-            filePath = filePath.replace('/.tmp/', '');
+            filePath = filePath.replace('/www/', '');
             return '<script src="' + filePath + '"></script>';
           },
           starttag: '<!-- injector:js -->',
           endtag: '<!-- endinjector -->'
         },
         files: {
-          '<%= yeoman.app %>/index.html': [
-            ['<%= yeoman.app %>/{app,components}/**/*.js',
-              '!<%= yeoman.app %>/app/app.js',
-              '!<%= yeoman.app %>/{app,components}/**/*.spec.js',
-              '!<%= yeoman.app %>/{app,components}/**/*.mock.js'
+          '<%%= yeoman.app %>/index.html': [
+            ['<%%= yeoman.app %>/{app,components}/**/*.js',
+              '!<%%= yeoman.app %>/app/app.js',
+              '!<%%= yeoman.app %>/{app,components}/**/*.spec.js',
+              '!<%%= yeoman.app %>/{app,components}/**/*.mock.js'
             ]
-          ]
+          ],
         }
       }
     },
     watch: {
       injectJS: {
         files: [
-          '<%= yeoman.app %>/{app,components}/**/*.js',
-          '!<%= yeoman.app %>/{app,components}/**/*.spec.js',
-          '!<%= yeoman.app %>/{app,components}/**/*.mock.js',
-          '!<%= yeoman.app %>/app/app.js'
+          '<%%= yeoman.app %>/{app,components}/**/*.js',
+          '!<%%= yeoman.app %>/{app,components}/**/*.spec.js',
+          '!<%%= yeoman.app %>/{app,components}/**/*.mock.js',
+          '!<%%= yeoman.app %>/app/app.js'
         ],
         tasks: ['injector:scripts']
       },
@@ -229,36 +213,36 @@ module.exports = function(grunt) {
         tasks: ['wiredep']
       },
       gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
+        files: '<%%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
       },
       js: {
-        files: ['<%= yeoman.app %>/app/**/*.js'],
+        files: ['<%%= yeoman.app %>/app/**/*.js'],
         tasks: ['newer:jshint', 'karma'],
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          livereload: '<%%= connect.options.livereload %>'
         }
       },
       html: {
-        files: ['<%= yeoman.app %>/app/**/*.html', '<%= yeoman.app %>/index.html'],
+        files: ['<%%= yeoman.app %>/app/**/*.html', '<%%= yeoman.app %>/index.html'],
         tasks: ['newer:inlinelint'],
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          livereload: '<%%= connect.options.livereload %>'
         }
       },
       livereload: {
         options: {
-          livereload: '<%= connect.options.livereload %>'
+          livereload: '<%%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/**/*.{png,jpg,jpeg,gif,webp,svg,html,css}'
+          '<%%= yeoman.app %>/**/*.{png,jpg,jpeg,gif,webp,svg,html,css}'
         ]
       }
     }
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'karma']);
+  // grunt.registerTask('default', ['jshint', 'karma']);
   grunt.registerTask('serve', [
     'inlinelint',
     'csslint',

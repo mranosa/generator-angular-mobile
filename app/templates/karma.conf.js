@@ -21,7 +21,6 @@ module.exports = function(config) {
       'www/bower_components/angular-mocks/angular-mocks.js',
       'www/bower_components/angular-resource/angular-resource.js',
       'www/bower_components/json3/lib/json3.min.js',
-      'www/bower_components/sass-bootstrap/dist/js/bootstrap.js',
       'www/bower_components/angular-resource/angular-resource.js',
       'www/bower_components/angular-cookies/angular-cookies.js',
       'www/bower_components/angular-sanitize/angular-sanitize.js',

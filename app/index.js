@@ -9,7 +9,10 @@ var genUtils = require('../util.js');
 
 var AngularMobileGenerator = yeoman.generators.Base.extend({
   initializing: function() {
-    this.argument('name', { type: String, required: false });
+    this.argument('name', {
+      type: String,
+      required: false
+    });
     this.appname = this.name || path.basename(process.cwd());
     this.appname = this._.camelize(this._.slugify(this._.humanize(this.appname)));
 
@@ -66,6 +69,7 @@ var AngularMobileGenerator = yeoman.generators.Base.extend({
   compose: function() {
     var appPath = 'www/app/';
     var filters = [];
+    var extensions = ['css', 'js', 'html'];
 
     if (this.filters.ngroute) filters.push('ngroute');
     if (this.filters.uirouter) filters.push('uirouter');
@@ -77,6 +81,7 @@ var AngularMobileGenerator = yeoman.generators.Base.extend({
         'filterDirectory': appPath,
         'serviceDirectory': appPath,
         'filters': filters,
+        'extensions': extensions,
         'basePath': 'www'
       }
     }, {
