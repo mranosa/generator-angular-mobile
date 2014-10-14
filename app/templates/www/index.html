@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="<%= scriptAppName %>">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="x-ua-compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-touch-fullscreen" content="yes">
+        
+        <title>Angular Cordova Seed</title>
+        
+        <!-- bower:css -->
+        <!-- endbower -->
+
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="app/app.css">
+        
+
+        <!-- bower:js -->
+        <!-- endbower -->
+        
+        <script src="app/app.js"></script>
+
+        <!-- injector:js -->
+        <!-- endinjector -->
+
+        <!-- cordova script (this will be a 404 during development) -->
+        <script src="cordova.js"></script>
+    </head>
+    <body>
+        
+        <% if(filters.ngroute) { %><div ng-view="">Cordova Initializing! Please wait.</div><% } %>
+        <% if(filters.uirouter) { %><div ui-view="">Cordova Initializing! Please wait.</div><% } %>
+
+    </body>
+</html>

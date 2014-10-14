@@ -90,7 +90,8 @@ var AngularMobileGenerator = yeoman.generators.Base.extend({
     var angModules = [
       "'ngCookies'",
       "'ngResource'",
-      "'ngSanitize'"
+      "'ngSanitize'",
+      "'ngCordovaMocks'"
     ];
 
     if (this.filters.ngroute) angModules.push("'ngRoute'");

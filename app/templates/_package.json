@@ -1,5 +1,30 @@
 {
-  "name": "package",
+  "name": "<%= _.slugify(_.humanize(appname)) %>",
   "version": "0.0.0",
-  "dependencies": {}
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-connect": "^0.8.0",
+    "grunt-contrib-csslint": "^0.3.1",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-html-angular-validate": "^0.4.0",
+    "grunt-karma": "^0.9.0",
+    "grunt-lint-inline": "^0.4.3",
+    "grunt-newer": "^0.7.0",
+    "grunt-protractor-runner": "^1.1.4",
+    "grunt-text-replace": "^0.3.12",
+    "grunt-wiredep": "^1.9.0",
+    "karma": "^0.12.23",
+    "karma-chrome-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "load-grunt-tasks": "^0.6.0",
+    "grunt-injector": "~0.5.4"
+  },
+  "scripts": {
+    "start": "grunt serve",
+    "test": "grunt test",
+    "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
+  }
 }
