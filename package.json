@@ -1,6 +1,6 @@
 {
   "name": "generator-angular-mobile",
-  "version": "0.0.4",
+  "version": "0.0.7",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -25,7 +25,8 @@
     "filter",
     "provider",
     "route",
-    "service"
+    "service",
+    "util.js"
   ],
   "keywords": [
     "yeoman-generator",
