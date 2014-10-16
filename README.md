@@ -27,11 +27,25 @@ Run `yo angular-mobile`, optionally passing an app name:
 yo angular-mobile [app-name]
 ```
 
-Run `grunt serve` for preview of the app in browser. `TODO: grunt serve:dist`
+Run `grunt serve` for preview of the app in browser.
 
 ## Injection
 
 A grunt task looks for new files in your `www/app` and `www/components` folder and automatically injects them in the appropriate places based on an injection block.
+
+## TODO
+- [] `user prompts on project scaffold`
+  - [ ] markup
+  - [ ] stylesheet
+  - [ ] framework? (bootstrap/ionic)
+  - [ ] mobile platforms
+  - [ ] initial cordova plugins
+- [] `grunt serve:dist`
+  - [ ] cordova cli commands
+  - [ ] bower clean up
+  - [ ] move generated apk etc to dist
+- [] `e2e`
+  - [ ] ???
 
 ## Generators
 
