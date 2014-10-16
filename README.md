@@ -1,6 +1,12 @@
 # Angular Mobile generator 
 
-> Yeoman generator for creating cordova applications, using AngularJS and ngCordova. End to end testing is now possible thanks to ngCordovaMocks. Have Fun!
+> Yeoman generator for creating cordova applications, using [AngularJS] and [ngCordova]. End to end testing is now possible thanks to [ngCordovaMocks]. Have Fun!
+
+## Prerequisites
+
+[Yeoman] - `sudo npm install -g yo`
+
+[Cordova CLI] - `sudo npm install -g cordova`
 
 ## Usage
 
@@ -200,3 +206,9 @@ To setup protractor e2e tests, you must first run
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT)
+
+[AngularJS]:https://angularjs.org/
+[ngCordova]:http://ngcordova.com/
+[ngCordovaMocks]:https://github.com/ecofic/ngCordovaMocks
+[Cordova CLI]:http://cordova.apache.org/docs/en/3.5.0/guide_cli_index.md.html
+[Yeoman]:http://yeoman.io/
