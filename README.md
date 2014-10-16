@@ -4,6 +4,8 @@
 
 ## Prerequisites
 
+[npm] - comes with [node]
+
 [Yeoman] - `sudo npm install -g yo`
 
 [Cordova CLI] - `sudo npm install -g cordova`
@@ -212,3 +214,5 @@ To setup protractor e2e tests, you must first run
 [ngCordovaMocks]:https://github.com/ecofic/ngCordovaMocks
 [Cordova CLI]:http://cordova.apache.org/docs/en/3.5.0/guide_cli_index.md.html
 [Yeoman]:http://yeoman.io/
+[npm]:https://github.com/npm/npm
+[node]:http://nodejs.org/download/
