@@ -41,9 +41,9 @@ A grunt task looks for new files in your `www/app` and `www/components` folder a
   - [ ] mobile platforms
   - [ ] initial cordova plugins
 - [ ] `grunt serve:dist`
-  - [ ] cordova cli commands
+  - [x] cordova cli commands
   - [ ] bower clean up
-  - [ ] move generated apk etc to dist
+  - [x] move generated apk etc to dist
 - [ ] `e2e`
   - [ ] ???
 
