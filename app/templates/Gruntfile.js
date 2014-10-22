@@ -198,6 +198,19 @@ module.exports = function(grunt) {
         }
       }
     },
+    copy: {
+      app: {
+        flatten: true,
+        expand: true,
+        src: 'platforms/android/ant-build/*.apk',
+        dest: 'dist/'
+      }
+    },
+    clean: {
+      build: {
+        src: ['dist']
+      }
+    },
     watch: {
       injectJS: {
         files: [
@@ -241,6 +254,57 @@ module.exports = function(grunt) {
     }
   });
 
+  // Register tasks for all Cordova commands
+  _.functions(cordovaCli).forEach(function(name) {
+    grunt.registerTask(name, function() {
+      this.args.unshift(name.replace('cordova:', ''));
+      // Handle URL's being split up by Grunt because of `:` characters
+      if (_.contains(this.args, 'http') || _.contains(this.args, 'https')) {
+        this.args = this.args.slice(0, -2).concat(_.last(this.args, 2).join(':'));
+      }
+      var done = this.async();
+      var exec = process.platform === 'win32' ? 'cordova.cmd' : 'cordova';
+      var cmd = path.resolve('./node_modules/cordova/bin', exec);
+      var flags = process.argv.splice(3);
+      var child = spawn(cmd, this.args.concat(flags));
+      child.stdout.on('data', function(data) {
+        grunt.log.writeln(data);
+      });
+      child.stderr.on('data', function(data) {
+        grunt.log.error(data);
+      });
+      child.on('close', function(code) {
+        code = code ? false : true;
+        done(code);
+      });
+    });
+  });
+
+  grunt.registerTask('ripple', ['ripple-emulator']);
+  grunt.registerTask('ripple-emulator', function() {
+    grunt.config.set('watch', {
+      all: {
+        files: _.flatten(_.pluck(grunt.config.get('watch'), 'files')),
+        tasks: ['prepare']
+      }
+    });
+
+    var cmd = path.resolve('./node_modules/ripple-emulator/bin', 'ripple');
+    var child = spawn(cmd, ['emulate']);
+    child.stdout.on('data', function(data) {
+      grunt.log.writeln(data);
+    });
+    child.stderr.on('data', function(data) {
+      grunt.log.error(data);
+    });
+    process.on('exit', function(code) {
+      child.kill('SIGINT');
+      process.exit(code);
+    });
+
+    return grunt.task.run(['watch']);
+  });
+  
   // Default task.
   // grunt.registerTask('default', ['jshint', 'karma']);
   grunt.registerTask('serve', [
